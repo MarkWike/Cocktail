@@ -1,30 +1,19 @@
 # Cocktail App
 
-Simple overview of use/purpose.
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+*Cocktail app is an application thats lets the user search for cocktail recipes by ingredients as well as showing most popular and has has a lucky dip function if your looking for inspiration. 
+* The application was written in SwiftUI and uses Combine.  
 
 ## Getting Started
+*Before you begin, ensure you have met the following requirements:
 
-### Dependencies
+*You have installed the latest version of Xcode
+*You have IOS 15 installed
+*For best experience, run on tested platform of iPhone Xs or later
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
-
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
-
-### Executing program
-
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+## Examples
 
 ## Help
 
