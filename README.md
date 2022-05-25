@@ -1,4 +1,4 @@
-# Project Title
+# Cocktail App
 
 Simple overview of use/purpose.
 
