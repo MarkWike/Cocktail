@@ -3,25 +3,22 @@
 
 ## Description
 
-* Cocktail app is an application thats lets the user search for cocktail recipes by ingredients as well as showing most popular and has has a lucky dip function if your looking for inspiration. 
+Cocktail app is an application thats lets the user search for cocktail recipes by ingredients as well as showing most popular and has has a lucky dip function if your looking for inspiration. 
  The application was written in SwiftUI and uses Combine.  
 
 ## Getting Started
-* Before you begin, ensure you have met the following requirements:
- You have installed the latest version of Xcode
- You have IOS 15 installed
- For best experience, run on tested platform of iPhone Xs or later
+
+Before you begin, ensure you have met the following requirements:
+  * You have installed the latest version of Xcode
+  * You have IOS 15 installed
+  * For best experience, run on tested platform of iPhone Xs or later
 
 ## Examples
 
-## Help
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
 
-## Authors
+## Contact
+Feel free to contact me at mark.wike@gmail.com or at twiter
 
 Contributors names and contact info
 
