@@ -1,5 +1,5 @@
 # Cocktail App
-(https://img.shields.io/twitter/follow/mark.wike?style=social)
+!(https://img.shields.io/twitter/follow/markwike?style=social)
 
 ## Description
 
