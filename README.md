@@ -15,7 +15,7 @@ Before you begin, ensure you have met the following requirements:
   * For best experience, run on tested platform of iPhone Xs or later
 
 ## Examples
-
+![giphy-1](https://media.giphy.com/media/1t6ynpyroq2sAlinaZ/giphy.gif)
 
 
 ## Contact
