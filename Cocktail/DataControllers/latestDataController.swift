@@ -16,7 +16,7 @@ class LatestDataController: ObservableObject {
     
     func fetch() {
       //  let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/\(APIKEY)/popular.php")
-        let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/9973533/latest.php")
+        let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/\(APIKEY)/latest.php")
       //  print(url)
         URLSession.shared.dataTaskPublisher(for: url!)
             .map { $0.data }

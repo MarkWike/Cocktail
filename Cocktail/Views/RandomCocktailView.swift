@@ -3,6 +3,7 @@ import SwiftUI
 struct RandomView: View {
     @StateObject var randomCocktailDataController = RandomCocktailDataController()
     let GradientColors = Gradient(colors: [Color.blue.opacity(0.5), Color.white])
+  let GradientColors1 = Gradient(colors: [Color.blue.opacity(0.5), Color.blue])
     var body: some View {
         ZStack{
             
@@ -20,7 +21,7 @@ struct RandomView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .clipShape(RoundedRectangle(cornerRadius: 15.0))
-                                .frame(maxWidth: 400, maxHeight: 150)
+                                .frame(maxWidth: 200, maxHeight: 200)
                                 .shadow(color: .blue.opacity(0.9), radius: 10, x: 5, y: 5)
                         },
                         placeholder: {
@@ -42,7 +43,7 @@ struct RandomView: View {
                     
                 VStack{
               
-                    let GlassText = "Best served in a \(drink.strGlass ?? " no glass")"
+                    let GlassText = "Best served in a \(drink.strGlass?.lowercased() ?? "glass")"
                     
               
                     Text(GlassText)
@@ -56,7 +57,7 @@ struct RandomView: View {
                         VStack{
                             ZStack{
                                 RoundedRectangle(cornerRadius: 20)
-                                    .fill(.blue)
+                                    .fill(LinearGradient(gradient: GradientColors1, startPoint: .top, endPoint: .bottom))
                              
 
                                 VStack {
@@ -73,7 +74,8 @@ struct RandomView: View {
                                 
                                     .frame(width: 300, alignment: .center)
                                     .foregroundColor(.white)
-                                    .padding()
+                                    .padding(.horizontal)
+                                    .padding(.bottom)
                                 }
                             }
                             .padding()
@@ -82,216 +84,235 @@ struct RandomView: View {
                                 VStack(spacing: 20){
                                     Text("Ingredients")
                                         .font(.custom("Futura", size: 20))
+                                        .shadow(color: .black.opacity(5.1), radius: 10, x: 5, y: 5)
                                    
                                         .frame(width: 300, alignment: .center)
                                         .foregroundColor(.white)
-                                        .padding()
-                                    Spacer()
+                                        .padding(20)
+                                  //  Spacer()
                                     if drink.strMeasure1 == nil {
                                         
                                     }else{
-                                    HStack {
-                                        
                                         ZStack{
-                                            Circle()
-                                                    .foregroundColor(.blue)
-                                                    .frame(width: 40, height: 40.0)
-                                        Image(drink.strIngredient1 ?? "bottle")
-                                                .resizable()
-                                            .frame(width: 35, height: 35.0)
+//
+                                            RoundedRectangle(cornerRadius: 15.0)
+                                                  //  .foregroundColor(.blue)
+                                                .fill(LinearGradient(gradient: GradientColors1, startPoint: .top, endPoint: .bottom))
+                                                    .frame(height: 40.0)
+                                                    .padding(.horizontal)
+                                     //       HStack{
+//                                        Image(drink.strIngredient1 ?? "Brandy")
+//                                                .resizable()
+//                                            .frame(width: 35, height: 35.0)
                                             
                                         
-                                        }
+                                        
                                         Text("\(drink.strMeasure1 ?? "") \(drink.strIngredient1 ?? "")")
                                             .font(.custom("Futura", size: 15))
-                                            .foregroundColor(.blue).opacity(1.6)
-                                        if drink.strMeasure1 == "" {
-                                   
+                                            .foregroundColor(.white).opacity(1.6)
+                                               // Spacer()
+                                       
+                                      //  }
+                                        
                                         }
-                                        Spacer()
-                                    }
                                     }
                                     
                                     if drink.strMeasure2 == nil {
                                         
                                     }else{
-                                    HStack {
                                         ZStack{
-                                            Circle()
-                                                    .foregroundColor(.blue)
-                                                    .frame(width: 40, height: 40.0)
-                                        Image(drink.strIngredient2 ?? "bottle")
-                                                .resizable()
-                                            .frame(width: 35, height: 35.0)
+//
+                                            RoundedRectangle(cornerRadius: 15.0)
+                                                  //  .foregroundColor(.blue)
+                                                .fill(LinearGradient(gradient: GradientColors1, startPoint: .top, endPoint: .bottom))
+                                                    .frame(height: 40.0)
+                                                    .padding(.horizontal)
+//                                            HStack{
+//                                        Image(drink.strIngredient2 ?? "Brandy")
+//                                                .resizable()
+//                                            .frame(width: 35, height: 35.0)
                                             
                                         
-                                        }
+                                        
                                         Text("\(drink.strMeasure2 ?? "") \(drink.strIngredient2 ?? "")")
                                             .font(.custom("Futura", size: 15))
-                                            .foregroundColor(.blue).opacity(1.6)
-                                        Spacer()
+                                            .foregroundColor(.white).opacity(1.6)
+                                               // Spacer()
+                                       
+                                   //     }
+                                        
+                                        }
                                     }
-                                    }
+                                    
                                     if drink.strMeasure3 == nil {
                                         
                                     }else{
-                                    HStack {
                                         ZStack{
-                                            Circle()
-                                                    .foregroundColor(.blue)
-                                                    .frame(width: 40, height: 40.0)
-                                        Image(drink.strIngredient3 ?? "bottle")
-                                                .resizable()
-                                            .frame(width: 35, height: 35.0)
+Spacer()
+                                            RoundedRectangle(cornerRadius: 15.0)
+                                                  //  .foregroundColor(.blue)
+                                                .fill(LinearGradient(gradient: GradientColors1, startPoint: .top, endPoint: .bottom))
+                                                .frame(height: 40.0)
+                                                .padding(.horizontal)
+                                            HStack{
+//                                        Image(drink.strIngredient3 ?? "Brandy")
+//                                                .resizable()
+//                                            .frame(width: 35, height: 35.0)
                                             
                                         
-                                        }
+                                        
                                         Text("\(drink.strMeasure3 ?? "") \(drink.strIngredient3 ?? "")")
                                             .font(.custom("Futura", size: 15))
-                                            .foregroundColor(.blue).opacity(1.6)
-                                        Spacer()
-                                    }
-                                    }
-                                    if drink.strMeasure4 == nil {
-                                        
-                                    }else{
-                                    HStack {
-                                        ZStack{
-                                            Circle()
-                                                    .foregroundColor(.blue)
-                                                    .frame(width: 40, height: 40.0)
-                                        Image(drink.strIngredient4 ?? "bottle")
-                                                .resizable()
-                                            .frame(width: 35, height: 35.0)
-                                            
-                                        
+                                            .foregroundColor(.white).opacity(1.6)
+                                               // Spacer()
+                                       
                                         }
-                                        Text("\(drink.strMeasure4 ?? "") \(drink.strIngredient4 ?? "")")
-                                            .font(.custom("Futura", size: 15))
-                                            .foregroundColor(.blue).opacity(1.6)
                                         Spacer()
-                                    }
-                                    }
-                                    if drink.strMeasure5 == nil {
-                                        
-                                    }else{
-                                    HStack {
-                                        ZStack{
-                                            Circle()
-                                                    .foregroundColor(.blue)
-                                                    .frame(width: 40, height: 40.0)
-                                        Image(drink.strIngredient5 ?? "bottle")
-                                                .resizable()
-                                            .frame(width: 35, height: 35.0)
-                                            
-                                        
-                                        }
-                                        Text("\(drink.strMeasure5 ?? "") \(drink.strIngredient5 ?? "")")
-                                            .font(.custom("Futura", size: 15))
-                                            .foregroundColor(.blue).opacity(1.6)
-                                        Spacer()
-                                    }
-                                    }
-                                    if drink.strMeasure6 == nil {
-                                        
-                                    }else{
-                                    HStack {
-                                        ZStack{
-                                          
-                                            Circle()
-                                                    .foregroundColor(.blue)
-                                                    .frame(width: 40, height: 40.0)
-                                            
-                                        Image(drink.strIngredient6 ?? "bottle")
-                                                .resizable()
-                                            .frame(width: 35, height: 35.0)
-                                            
-                                        
-                                        }
-                                        Text("\(drink.strMeasure6 ?? "") \(drink.strIngredient6 ?? "")")
-                                            .font(.custom("Futura", size: 15))
-                                            .foregroundColor(.blue).opacity(1.6)
-                                        Spacer()
-                                    }
-                                }
-                                
-                                    if drink.strMeasure7 == nil {
-                                        
-                                    }else{
-                                    HStack {
-                                        ZStack{
-                                          
-                                            Circle()
-                                                    .foregroundColor(.blue)
-                                                    .frame(width: 40, height: 40.0)
-                                            
-                                        Image(drink.strIngredient7 ?? "bottle")
-                                                .resizable()
-                                            .frame(width: 35, height: 35.0)
-                                            
-                                        
-                                        }
-                                        Text("\(drink.strMeasure7 ?? "") \(drink.strIngredient7 ?? "")")
-                                            .font(.custom("Futura", size: 15))
-                                            .foregroundColor(.blue).opacity(1.6)
-                                        Spacer()
-                                    }
-                                }
-                                    VStack{
-                                    if drink.strMeasure8 == nil {
-
-                                    }else{
-                                    HStack {
-                                        ZStack{
-
-                                            Circle()
-                                                    .foregroundColor(.blue)
-                                                    .frame(width: 40, height: 40.0)
-
-                                        Image(drink.strIngredient8 ?? "")
-                                                .resizable()
-                                            .frame(width: 35, height: 35.0)
-
-
-                                        }
-                                        Text("\(drink.strMeasure8 ?? "") \(drink.strIngredient8 ?? "")")
-                                            .font(.custom("Futura", size: 15))
-                                            .foregroundColor(.blue).opacity(1.6)
-                                        Spacer()
-                                    }
-                                }
-
-                                    if drink.strMeasure9 == nil {
-
-                                    }else{
-                                    HStack {
-                                        ZStack{
-
-                                            Circle()
-                                                    .foregroundColor(.blue)
-                                                    .frame(width: 40, height: 40.0)
-
-                                        Image(drink.strIngredient9 ?? "")
-                                                .resizable()
-                                            .frame(width: 35, height: 35.0)
-
-
-                                        }
-                                        Text("\(drink.strMeasure9 ?? "") \(drink.strIngredient9 ?? "")")
-                                            .font(.custom("Futura", size: 15))
-                                            .foregroundColor(.blue).opacity(1.6)
-                                        Spacer()
-                                    }
-                                }
-//
-                            
-                                    }
+                             
                                     }
                                     
+                                if drink.strMeasure4 == nil {
+                                    
+                                }else{
+                                    ZStack{
+Spacer()
+                                        RoundedRectangle(cornerRadius: 15.0)
+                                             
+                                            .fill(LinearGradient(gradient: GradientColors1, startPoint: .top, endPoint: .bottom))
+                                            .frame(height: 40.0)
+                                            .padding(.horizontal)
+
+                                        
+                                    
+                                    
+                                    Text("\(drink.strMeasure4 ?? "") \(drink.strIngredient4 ?? "")")
+                                        .font(.custom("Futura", size: 15))
+                                        .foregroundColor(.white).opacity(1.6)
+                               
+                                    Spacer()
+                                    }
+                     
+                             
+                                }
+                                
+                            if drink.strMeasure5 == nil {
+                                
+                            }else{
+                                ZStack{
+Spacer()
+                                    RoundedRectangle(cornerRadius: 15.0)
+                                          //  .foregroundColor(.blue)
+                                        .fill(LinearGradient(gradient: GradientColors1, startPoint: .top, endPoint: .bottom))
+                                        .frame(height: 40.0)
+                                        .padding(.horizontal)
+
+                                    
+                                
+                                
+                                Text("\(drink.strMeasure5 ?? "") \(drink.strIngredient5 ?? "")")
+                                    .font(.custom("Futura", size: 15))
+                                    .foregroundColor(.white).opacity(1.6)
+                                       // Spacer()
+                               
+                             //   }
+                                Spacer()
+                                }
+                     //       }
+                         
+                            }
+                                
+                        if drink.strMeasure6 == nil {
+                            
+                        }else{
+                            ZStack{
+Spacer()
+                                RoundedRectangle(cornerRadius: 15.0)
+                                      //  .foregroundColor(.blue)
+                                    .fill(LinearGradient(gradient: GradientColors1, startPoint: .top, endPoint: .bottom))
+                                    .frame(height: 40.0)
+                                    .padding(.horizontal)
+
+                                
+                            
+                            
+                            Text("\(drink.strMeasure6 ?? "") \(drink.strIngredient6 ?? "")")
+                                .font(.custom("Futura", size: 15))
+                                .foregroundColor(.white).opacity(1.6)
+                                   // Spacer()
+                           
+                        //    }
+                            Spacer()
+                            }
+                     //   }
+                     
+                        }
+                        
+                    if drink.strMeasure7 == nil {
+                        
+                    }else{
+                        ZStack{
+Spacer()
+                            RoundedRectangle(cornerRadius: 15.0)
+                                  //  .foregroundColor(.blue)
+                                .fill(LinearGradient(gradient: GradientColors1, startPoint: .top, endPoint: .bottom))
+                                .frame(height: 40.0)
+                                .padding(.horizontal)
+//                            HStack{
+//                        Image(drink.strIngredient7 ?? "Brandy")
+//                                .resizable()
+//                            .frame(width: 35, height: 35.0)
+//
+                        
+                        
+                        Text("\(drink.strMeasure7 ?? "") \(drink.strIngredient7 ?? "")")
+                            .font(.custom("Futura", size: 15))
+                            .foregroundColor(.white).opacity(1.6)
+                               // Spacer()
+                       
+                    //    }
+                        Spacer()
+                        }
+                    }
+                 
+                 //   }
+                        
+                if drink.strMeasure8 == nil {
+                    
+                }else{
+                    ZStack{
+Spacer()
+                        RoundedRectangle(cornerRadius: 15.0)
+                              //  .foregroundColor(.blue)
+                            .fill(LinearGradient(gradient: GradientColors1, startPoint: .top, endPoint: .bottom))
+                            .frame(height: 40.0)
+                            .padding(.horizontal)
+//                        HStack{
+//                    Image(drink.strIngredient8 ?? "Brandy")
+//                            .resizable()
+//                        .frame(width: 35, height: 35.0)
+                        
+                    
+                    
+                    Text("\(drink.strMeasure8 ?? "") \(drink.strIngredient8 ?? "")")
+                        .font(.custom("Futura", size: 15))
+                        .foregroundColor(.white).opacity(1.6)
+                           // Spacer()
+                   
+                  //  }
+                    Spacer()
+                    }
+                }
+             
+                }
+                        
+                        
+                        
+                        
                                 }
                             }
                         }
                     }
+                }
                 }
             }
             Spacer()

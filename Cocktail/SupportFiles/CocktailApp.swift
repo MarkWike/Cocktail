@@ -11,9 +11,8 @@ import SwiftUI
 struct CocktailApp: App {
     var body: some Scene {
         WindowGroup {
-           
-           MainMenu(drinkId: practiceDrinkID)
-          //  testview()
+        FirstView()
+                .environment(\.managedObjectContext, UserDrinksContainer().UserDrinkspersistantContainer.viewContext)
         }
     }
 }
