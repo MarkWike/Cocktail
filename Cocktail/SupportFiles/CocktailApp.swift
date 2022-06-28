@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
-
 @main
 struct CocktailApp: App {
     var body: some Scene {
         WindowGroup {
-        FirstView()
+            SwiftUIView1()
                 .environment(\.managedObjectContext, UserDrinksContainer().UserDrinkspersistantContainer.viewContext)
         }
     }

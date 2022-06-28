@@ -9,14 +9,13 @@ import Foundation
 import Combine
 
 class GinDataController: ObservableObject {
-
+    
     @Published var ginInfo: GinInfo?
- 
+    
     var cancellable: Set<AnyCancellable> = []
     
     func fetch() {
         let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/\(APIKEY)/filter.php?i=Gin")
-      //  print(url)
         URLSession.shared.dataTaskPublisher(for: url!)
             .map { $0.data }
             .decode(type: GinInfo?.self, decoder: JSONDecoder())
@@ -31,5 +30,4 @@ class GinDataController: ObservableObject {
             }
             .store(in: &cancellable)
     }
-   
 }

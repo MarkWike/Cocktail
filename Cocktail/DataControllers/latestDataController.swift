@@ -9,15 +9,10 @@ import Foundation
 import Combine
 
 class LatestDataController: ObservableObject {
-
     @Published var latestInfo: LatestInfo?
- 
     var cancellable: Set<AnyCancellable> = []
-    
     func fetch() {
-      //  let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/\(APIKEY)/popular.php")
         let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/\(APIKEY)/latest.php")
-      //  print(url)
         URLSession.shared.dataTaskPublisher(for: url!)
             .map { $0.data }
             .decode(type: LatestInfo?.self, decoder: JSONDecoder())
@@ -32,5 +27,4 @@ class LatestDataController: ObservableObject {
             }
             .store(in: &cancellable)
     }
-   
 }

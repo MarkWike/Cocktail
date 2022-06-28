@@ -8,11 +8,8 @@ import Foundation
 import Combine
 
 class RumDataController: ObservableObject {
-
     @Published var rumInfo: RumInfo?
- 
     var cancellable: Set<AnyCancellable> = []
-    
     func fetch() {
         let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/\(APIKEY)/filter.php?i=Rum")
         URLSession.shared.dataTaskPublisher(for: url!)
@@ -29,5 +26,4 @@ class RumDataController: ObservableObject {
             }
             .store(in: &cancellable)
     }
-   
 }

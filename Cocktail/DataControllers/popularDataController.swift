@@ -9,15 +9,13 @@ import Foundation
 import Combine
 
 class PopularDataController: ObservableObject {
-
+    
     @Published var popularInfo: PopularInfo?
- 
+    
     var cancellable: Set<AnyCancellable> = []
     
     func fetch() {
         let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/\(APIKEY)/popular.php")
-     
-      //  print(url)
         URLSession.shared.dataTaskPublisher(for: url!)
             .map { $0.data }
             .decode(type: PopularInfo?.self, decoder: JSONDecoder())
@@ -32,5 +30,4 @@ class PopularDataController: ObservableObject {
             }
             .store(in: &cancellable)
     }
-   
 }

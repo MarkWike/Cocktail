@@ -52,7 +52,4 @@ struct Cocktails: Hashable, Decodable {
     var strMeasure13: String?
     var strMeasure14: String?
     var strMeasure15: String?
-    
-    
-    
 }

@@ -9,16 +9,11 @@ import Foundation
 import Combine
 
 class NonDataController: ObservableObject {
-
     @Published var nonInfo: NonInfo?
- 
     var cancellable: Set<AnyCancellable> = []
     
     func fetch() {
-      //  let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/\(APIKEY)/popular.php")
         let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/\(APIKEY)/filter.php?a=Non_Alcoholic")
-  
-      //  print(url)
         URLSession.shared.dataTaskPublisher(for: url!)
             .map { $0.data }
             .decode(type: NonInfo?.self, decoder: JSONDecoder())
@@ -33,5 +28,4 @@ class NonDataController: ObservableObject {
             }
             .store(in: &cancellable)
     }
-   
 }

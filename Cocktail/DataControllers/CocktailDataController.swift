@@ -9,15 +9,11 @@ import Foundation
 import Combine
 
 class CocktailDataController: ObservableObject {
-
     @Published var cocktailInfo: CocktailInfo?
- //   var DrinkId : Int
     var cancellable: Set<AnyCancellable> = []
     
     func fetch(DrinkID: String) {
-       // print("the drink id is \(DrinkID)")
         let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/\(APIKEY)/lookup.php?i=\(DrinkID)")
-     //   print(url)
         URLSession.shared.dataTaskPublisher(for: url!)
             .map { $0.data }
             .decode(type: CocktailInfo?.self, decoder: JSONDecoder())
@@ -32,6 +28,5 @@ class CocktailDataController: ObservableObject {
             }
             .store(in: &cancellable)
     }
-   
 }
 let practiceDrinkID = "11007"

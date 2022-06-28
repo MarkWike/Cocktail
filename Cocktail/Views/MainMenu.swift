@@ -10,267 +10,166 @@ import SwiftUI
 struct MainMenu: View {
     @ObservedObject var dataController = PopularDataController()
     @ObservedObject var dataController1 = LatestDataController()
-    let GradientColors = Gradient(colors: [Color.blue.opacity(0.5), Color.white])
+    let GradientColors = Gradient(colors: [ Color.white, Color("orange").opacity(0.7)])
     var drinkId: String
     var typeID: String
     var body: some View {
-        
-     //   NavigationView {
+        NavigationView {
             ZStack{
-                
-                LinearGradient(gradient: GradientColors, startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
-                
+                LinearGradient(gradient: GradientColors, startPoint: .bottomLeading, endPoint: .center)
+                    .ignoresSafeArea()
+                    .ignoresSafeArea(.container, edges: [.bottom, .horizontal])
                 ScrollView(Axis.Set.vertical,showsIndicators: false) {
-                    
                     VStack{
-                        HStack{
-                            Text("COCKTAILS")
-                                .font(.custom("Futura Bold", size: 40))
-                                .foregroundColor(.blue).opacity(1.6)
-                                .padding()
-                        }
                         Spacer()
                         HStack{
-                            Text("QUICK SEARCH")
+                            Text("QUICK LOOKUP")
                                 .font(.custom("Futura Bold", size: 20))
-                                .foregroundColor(.blue).opacity(1.6)
-                                .padding()
+                                .foregroundColor(.white)
+                                .shadow(color: .black.opacity(0.7), radius: 10, x: 5, y: 5)
+                                .padding(.top)
+                                .padding(.horizontal)
                             Spacer()
                         }
-                    }
-                    VStack{
-                        ScrollView(Axis.Set.horizontal,showsIndicators: false) {
-                            HStack{
-                                NavigationLink(destination: GinView()) {
-                                    ginButton()
-                                        .padding(.leading, 1.0)
-                                }
-                                NavigationLink(destination: VodkaView()) {
-                                    vodkaButton()
-                                        .padding(.leading, 1.0)
-                                }
-                                NavigationLink(destination: RumView()) {
-                                    rumButton()
-                                        .padding(.leading, 1.0)
-                                }
-                                NavigationLink(destination: UserDrinkMenu()) {
-                                    ZStack{
-                                        Capsule()
-                                                        .fill(.blue)
-                                                        .frame(width: 100, height: 50)
-                                                        .shadow(color: .black.opacity(0.4), radius: 10, x: 5, y: 5)
-                                    Text("user drinks")
-                                        .font(.custom("Futura Bold", size: 30))
-                                        .foregroundColor(.white).opacity(1.6)
-                                    }
-                                }
-                            }
-                        }
-                        Spacer()
-                        
-                        
-                        
-                        
-                        
-                        
-                        HStack{
-                            Text("SEARCH")
-                                .font(.custom("Futura Bold", size: 20))
-                                .foregroundColor(.blue).opacity(1.6)
-                                .padding()
-                            Spacer()
-                        }
-                        ScrollView(Axis.Set.horizontal,showsIndicators: false) {
-                            HStack{
-                              
-//                                NavigationLink(destination: UserDrinkMenu()) {
-//                                    ZStack{
-//                                        Capsule()
-//                                                        .fill(.blue)
-//                                                        .frame(width: 100, height: 50)
-//                                                        .shadow(color: .black.opacity(0.4), radius: 10, x: 5, y: 5)
-//                                    Text("user drinks")
-//                                        .font(.custom("Futura Bold", size: 30))
-//                                        .foregroundColor(.white).opacity(1.6)
-//                                    }
-//                                }
-                                
-                                
-//
-                                
-                                NavigationLink(destination: TypeMenu()) {
-                                    ZStack{
-                                    Image("softDrink")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .clipShape(RoundedRectangle(cornerRadius: 15.0))
-                                        .frame(width: 130, height: 130)
-                                      //  .shadow(color: .black.opacity(0.4), radius: 10, x: 5, y: 5)
-                                    VStack{
-                                        Text("Search by type")
-                                            .font(.custom("Futura Bold", size: 17))
-                                            .foregroundColor(.white).opacity(1.6)
-                                            .shadow(color: .black.opacity(5.1), radius: 10, x: 5, y: 5)
-                                            .frame(width: 120, height: 70, alignment: .center)
-                                          //  .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
-                                    }
-                                }
-                                }
-                                
-                            }
-                        }
-                        Spacer()
-                        
-                        
-                        
-                        
-                        
-                        
-                        HStack{
-                            Text("MOST POPULAR")
-                                .font(.custom("Futura Bold", size: 20))
-                                .foregroundColor(.blue).opacity(1.6)
-                                .padding()
-                            Spacer()
-                            
-                        }
-                        
-                        ScrollView(Axis.Set.horizontal,showsIndicators: false) {
-                            
-                            HStack{
-                                
-                                ForEach(dataController.popularInfo?.drinks ?? [], id: \.self) { popularDrink in
-                                    NavigationLink {
-                                        CocktailView(drinkId: popularDrink.idDrink ?? "11007")
-                                        
-                                        
-                                        
-                                    }label: {
-                                        
-                                        ZStack{
-                                            let test = popularDrink.strDrinkThumb ?? "drink thumb"
-                                            let url1 = URL(string: test)
-                                            AsyncImage(
-                                                url: url1,
-                                                content: { image in
-                                                    image
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fit)
-                                                        .clipShape(RoundedRectangle(cornerRadius: 15.0))
-                                                        .frame(maxWidth: 120, maxHeight: 120)
-                                                     //   .shadow(color: .black.opacity(0.4), radius: 10, x: 5, y: 5)
-                                                },
-                                                placeholder: {
-                                                    ProgressView()
-                                                }
-                                            )
-                                            
-                                            ZStack{
-                                                Text(popularDrink.strDrink ?? "11007")
-                                                    .font(.custom("Futura Bold", size: 17))
-                                                    .foregroundColor(.white).opacity(1.6)
-                                                    .frame(width: 120, height: 60, alignment: .center)
-                                                    .shadow(color: .black.opacity(5.1), radius: 10, x: 5, y: 5)
-                                                
-                                                //    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
-                                            }
-                                        }
-                                        
-                                    }
-                                    
-                                }
-                            }
-                            
-                        }
-                        
                         VStack{
-                            HStack{
-                                Text("LATEST")
-                                    .font(.custom("Futura Bold", size: 20))
-                                    .foregroundColor(.blue).opacity(1.6)
-                                    .padding()
-                                Spacer()
-                                
-                            }
-                            
-                            
-                            
                             ScrollView(Axis.Set.horizontal,showsIndicators: false) {
-                                
                                 HStack{
-                                    
-                                    ForEach(dataController1.latestInfo?.drinks ?? [], id: \.self) { latestDrink in
+                                    NavigationLink(destination: GinView()) {
+                                        ginButton()
+                                            .padding(.leading, 1.0)
+                                    }
+                                    NavigationLink(destination: VodkaView()) {
+                                        vodkaButton()
+                                            .padding(.leading, 1.0)
+                                    }
+                                    NavigationLink(destination: RumView()) {
+                                        rumButton()
+                                            .padding(.leading, 1.0)
+                                    }
+                                }.padding(.horizontal)
+                            }
+                            Spacer()
+                            HStack{
+                                Text("MOST POPULAR")
+                                    .font(.custom("Futura Bold", size: 20))
+                                    .foregroundColor(.white)
+                                    .shadow(color: .black.opacity(0.7), radius: 10, x: 5, y: 5)
+                                    .padding(.horizontal)
+                                    .padding(.top)
+                                Spacer()
+                            }
+                            ScrollView(Axis.Set.horizontal,showsIndicators: false) {
+                                HStack{
+                                    ForEach(dataController.popularInfo?.drinks ?? [], id: \.self) { popularDrink in
                                         NavigationLink {
-                                            CocktailView(drinkId: latestDrink.idDrink ?? "11007")
-                                            
-                                            
-                                            
+                                            CocktailView(drinkId: popularDrink.idDrink ?? "11007")
                                         }label: {
-                                            
                                             ZStack{
-                                                let test1 = latestDrink.strDrinkThumb ?? "drink thumb"
-                                                let url11 = URL(string: test1)
+                                                let test = popularDrink.strDrinkThumb ?? "drink thumb"
+                                                let url1 = URL(string: test)
                                                 AsyncImage(
-                                                    url: url11,
+                                                    url: url1,
                                                     content: { image in
                                                         image
                                                             .resizable()
                                                             .aspectRatio(contentMode: .fit)
                                                             .clipShape(RoundedRectangle(cornerRadius: 15.0))
-                                                            .frame(maxWidth: 120, maxHeight: 120)
-                                                          //  .shadow(color: .black.opacity(0.4), radius: 10, x: 5, y: 5)
+                                                            .frame(maxWidth: 100, maxHeight: 100)
+                                                            .shadow(color: .black.opacity(0.3), radius: 5, x: 5, y: 5)
                                                     },
                                                     placeholder: {
                                                         ProgressView()
                                                     }
                                                 )
-                                                
-                                                VStack{
-                                                    Text(latestDrink.strDrink ?? "11007")
-                                                        .font(.custom("Futura Bold", size: 15))
+                                                ZStack{
+                                                    Text(popularDrink.strDrink ?? "11007")
+                                                        .font(.custom("Futura Bold", size: 17))
                                                         .foregroundColor(.white).opacity(1.6)
-                                                        .frame(width: 120, height: 60,alignment: .center)
+                                                        .frame(width: 100, height: 100, alignment: .center)
                                                         .shadow(color: .black.opacity(5.1), radius: 10, x: 5, y: 5)
-                                                      //  .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
                                                 }
                                             }
-                                            
                                         }
-                                        
                                     }
                                 }
-                                
+                            }.padding(.leading)
+                            VStack{
+                                HStack{
+                                    Text("LATEST ADDITIONS")
+                                        .font(.custom("Futura Bold", size: 20))
+                                        .foregroundColor(.white)
+                                        .shadow(color: .black.opacity(0.7), radius: 10, x: 5, y: 5)
+                                        .padding(.horizontal)
+                                        .padding(.top)
+                                    Spacer()
+                                }
+                                ScrollView(Axis.Set.horizontal,showsIndicators: false) {
+                                    HStack{
+                                        ForEach(dataController1.latestInfo?.drinks ?? [], id: \.self) { latestDrink in
+                                            NavigationLink {
+                                                CocktailView(drinkId: latestDrink.idDrink ?? "11007")
+                                            }label: {
+                                                ZStack{
+                                                    let test1 = latestDrink.strDrinkThumb ?? "drink thumb"
+                                                    let url11 = URL(string: test1)
+                                                    AsyncImage(
+                                                        url: url11,
+                                                        content: { image in
+                                                            image
+                                                                .resizable()
+                                                                .aspectRatio(contentMode: .fit)
+                                                                .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                                                .frame(maxWidth: 120, maxHeight: 100)
+                                                                .shadow(color: .black.opacity(0.3), radius: 5, x: 5, y: 5)
+                                                        },
+                                                        placeholder: {
+                                                            ProgressView()
+                                                        }
+                                                    )
+                                                    VStack{
+                                                        Text(latestDrink.strDrink ?? "11007")
+                                                            .font(.custom("Futura Bold", size: 15))
+                                                            .foregroundColor(.white).opacity(1.6)
+                                                            .frame(width: 100, height: 60,alignment: .center)
+                                                            .shadow(color: .black.opacity(0.9), radius: 10, x: 5, y: 5)
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }.padding(.horizontal)
+                                }
                             }
-                            
-                            
+                            HStack{
+                                Text("RANDOM DRINKS")
+                                    .font(.custom("Futura Bold", size: 20))
+                                    .foregroundColor(.white)
+                                    .shadow(color: .black.opacity(0.7), radius: 10, x: 5, y: 5)
+                                    .padding(.horizontal)
+                                    .padding(.top)
+                                Spacer()
+                            }
+                            ScrollView(Axis.Set.horizontal,showsIndicators: false) {
+                                HStack{
+                                    NavigationLink(destination: RandomView()) {
+                                        LuckDipButtonView()
+                                    }
+                                    NavigationLink(destination: RandomlListView()) {
+                                        RandomListButtonView()
+                                    }
+                                }.padding(.horizontal)
+                            }
                         }
-                        NavigationLink(destination: RandomView()) {
-                            TestView5()
-                                .padding()
-                        }
-                        
-                       
+                        .navigationBarHidden(true)
                     }
-                   
-                }
-                
-                .navigationBarHidden(true)
-                .toolbar {
-                    
-                }
-                
-              
-                }
-   //     }
-        
-        .onAppear {
-            dataController.fetch()
-            dataController1.fetch()
+                }.frame(height: UIScreen.frameSizeMain)
+            }
+            .onAppear {
+                dataController.fetch()
+                dataController1.fetch()
+            }
         }
-        
+        .navigationBarBackButtonHidden(true) 
     }
-    
 }
 
 
@@ -283,7 +182,15 @@ struct MainMenu_Previews: PreviewProvider {
 }
 
 
-
+extension UIScreen{
+    static let screenWidth = UIScreen.main.bounds.size.width
+    static let screenHeight = UIScreen.main.bounds.size.height
+    static let screenSize = UIScreen.main.bounds.size
+    static let frameSizeList = UIScreen.main.bounds.size.height / 10 * 7
+    static let frameSizeMain = UIScreen.main.bounds.size.height / 10 * 8.4
+    static let frameSizeCocktailList = UIScreen.main.bounds.size.height / 10 * 3.5
+    static let frameSizeSearchList = UIScreen.main.bounds.size.height / 10 * 6
+}
 
 
 

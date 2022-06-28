@@ -8,9 +8,7 @@ import Foundation
 import Combine
 
 class VodkaDataController: ObservableObject {
-
     @Published var vodkaInfo: VodkaInfo?
- 
     var cancellable: Set<AnyCancellable> = []
     
     func fetch() {
@@ -29,5 +27,4 @@ class VodkaDataController: ObservableObject {
             }
             .store(in: &cancellable)
     }
-   
 }

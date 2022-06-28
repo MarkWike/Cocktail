@@ -9,9 +9,9 @@ import Foundation
 import Combine
 
 class RandomCocktailDataController: ObservableObject {
-
+    
     @Published var randomCocktailInfo: RandomCocktailInfo?
-  //  var MatchId : Int
+    
     var cancellable: Set<AnyCancellable> = []
     
     func fetch() {
@@ -30,5 +30,4 @@ class RandomCocktailDataController: ObservableObject {
             }
             .store(in: &cancellable)
     }
-   
 }

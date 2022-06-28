@@ -1,9 +1,10 @@
 import SwiftUI
 struct MyParentView: View {
-    @State var replay: Bool = false
+    @State var replay: Bool = true
+    
     var body: some View {
         ZStack{
-           Color.blue.opacity(0.0)
+            //Color.indigo.opacity(0.6)
             
             BubbleEffectView(replay: $replay)
             
@@ -27,8 +28,8 @@ struct BubbleEffectView: View {
             
             .onAppear(){
                 //Set the initial position from frame size
-               // viewModel.viewBottom = geo.size.height
-                viewModel.viewBottom = geo.size.height * 2
+                // viewModel.viewBottom = geo.size.height
+                viewModel.viewBottom = geo.size.height * 1.5
                 viewModel.addBubbles(frameSize: geo.size)
             }
         }
@@ -38,22 +39,22 @@ class BubbleEffectViewModel: ObservableObject{
     @Published var viewBottom: CGFloat = CGFloat.zero
     @Published var bubbles: [BubbleViewModel] = []
     private var timer: Timer?
-    private var timerCount: Int = 0
-    @Published var bubbleCount: Int = 50000
+    private var timerCount: Int = 100
+    @Published var bubbleCount: Int = 50
     
     func addBubbles(frameSize: CGSize){
-        let lifetime: TimeInterval = 3
+        let lifetime: TimeInterval = 7
         //Start timer
         timerCount = 0
         if timer != nil{
             timer?.invalidate()
         }
-        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (timer) in
-            let bubble = BubbleViewModel(height: 10, width: 10, x: frameSize.width/2, y: self.viewBottom, color: .white, lifetime: lifetime)
+        timer = Timer.scheduledTimer(withTimeInterval: 0.7, repeats: true) { (timer) in
+            let bubble = BubbleViewModel(height: 25, width: 25, x: frameSize.width/3, y: self.viewBottom, color: .indigo, lifetime: lifetime)
             //Add to array
             self.bubbles.append(bubble)
             //Get rid if the bubble at the end of its lifetime
-            Timer.scheduledTimer(withTimeInterval: bubble.lifetime, repeats: false, block: {_ in
+            Timer.scheduledTimer(withTimeInterval: bubble.lifetime, repeats: true, block: {_ in
                 self.bubbles.removeAll(where: {
                     $0.id == bubble.id
                 })
@@ -82,13 +83,13 @@ struct BubbleView: View {
                 
                 withAnimation(.linear(duration: bubble.lifetime)){
                     //Go up
-                    self.bubble.y = -bubble.height
+                    self.bubble.y = -bubble.height/1
                     //Go sideways
                     self.bubble.x += bubble.xFinalValue()
                     //Change size
                     let width = bubble.yFinalValue()
-                    self.bubble.width = width
-                    self.bubble.height = width
+                    self.bubble.width = width*1.5
+                    self.bubble.height = width*1.5
                 }
                 //Change the opacity faded to full to faded
                 //It is separate because it is half the duration

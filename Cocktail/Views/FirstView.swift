@@ -8,27 +8,39 @@
 import SwiftUI
 
 struct FirstView: View {
-    let GradientColors = Gradient(colors: [Color.blue.opacity(0.5), Color.white])
+    
+    let GradientColors = Gradient(colors: [ Color.white, Color("orange").opacity(0.7)])
     var body: some View {
         NavigationView {
             ZStack{
-                
-                LinearGradient(gradient: GradientColors, startPoint: .top, endPoint: .bottom)
+                LinearGradient(gradient: GradientColors, startPoint: .bottomLeading, endPoint: .center)
                     .ignoresSafeArea()
                 VStack(spacing: 30) {
-                    Text("COCKTAILS")
+                    Text("THE")
                         .font(.custom("Futura Bold", size: 40))
-                        .foregroundColor(.blue).opacity(1.6)
-                        .padding()
+                        .foregroundColor(.indigo)
+                        .shadow(color: .white.opacity(0.4), radius: 10, x: 5, y: 5)
+                    Text("COCKTAIL")
+                        .font(.custom("Futura Bold", size: 40))
+                        .foregroundColor(.indigo)
+                        .shadow(color: .white.opacity(0.4), radius: 10, x: 5, y: 5)
+                    
+                    Text("GUIDE")
+                        .font(.custom("Futura Bold", size: 40))
+                        .foregroundColor(.indigo)
+                        .shadow(color: .white.opacity(0.4), radius: 10, x: 5, y: 5)
+                    
                     Text("Are you over 21?")
                         .font(.custom("Futura Bold", size: 20))
-                        .foregroundColor(.blue).opacity(1.6)
+                        .foregroundColor(.white)
+                        .shadow(color: .indigo.opacity(0.4), radius: 10, x: 5, y: 5)
                         .padding()
                     HStack{
-                        NavigationLink(destination: MainMenu(drinkId: practiceDrinkID, typeID: practiceTypeID)) {
+                        
+                        NavigationLink(destination: SwiftUIView1()) {
                             ZStack{
                                 Capsule()
-                                    .fill(.blue)
+                                    .fill(.indigo)
                                     .frame(width: 100, height: 50)
                                     .shadow(color: .black.opacity(0.4), radius: 10, x: 5, y: 5)
                                 Text("Yes")
@@ -39,7 +51,7 @@ struct FirstView: View {
                         NavigationLink(destination: NonView()) {
                             ZStack{
                                 Capsule()
-                                    .fill(.blue)
+                                    .fill(.indigo)
                                     .frame(width: 100, height: 50)
                                     .shadow(color: .black.opacity(0.4), radius: 10, x: 5, y: 5)
                                 Text("No")

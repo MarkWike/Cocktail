@@ -9,16 +9,11 @@ import Foundation
 import Combine
 
 class TypeDataController: ObservableObject {
-
     @Published var typeInfo: TypeInfo?
- //   var DrinkId : Int
     var cancellable: Set<AnyCancellable> = []
     
     func fetch(TypeID: String) {
-        print("the type id is \(TypeID)")
         let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/\(APIKEY)/filter.php?c=\(TypeID)")
-      //  let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/\(APIKEY)/lookup.php?i=\(DrinkID)")
-     //   print(url)
         URLSession.shared.dataTaskPublisher(for: url!)
             .map { $0.data }
             .decode(type: TypeInfo?.self, decoder: JSONDecoder())

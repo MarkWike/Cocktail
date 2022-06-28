@@ -16,8 +16,4 @@ struct VodkaDrinks: Hashable, Decodable {
     var strDrink: String?
     var strDrinkThumb: String?
     var idDrink: String?
-    
-    
-    
-    
 }
