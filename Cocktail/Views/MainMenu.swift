@@ -168,7 +168,7 @@ struct MainMenu: View {
                 dataController1.fetch()
             }
         }
-        .navigationBarBackButtonHidden(true) 
+            .navigationBarBackButtonHidden(true) 
     }
 }
 
