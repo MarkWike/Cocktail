@@ -4,7 +4,7 @@ struct MyParentView: View {
     
     var body: some View {
         ZStack{
-            //Color.indigo.opacity(0.6)
+        
             
             BubbleEffectView(replay: $replay)
             
