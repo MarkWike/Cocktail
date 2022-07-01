@@ -25,6 +25,7 @@ struct SearchIngredients: View {
                 searchIngredients3pickedView(Name1: viewModel.Ingredient1View, Name2: viewModel.Ingredient2View, Name3: viewModel.Ingredient3View)
                
                 NavigationLink {
+                  //  IngredientsDrinkView(ingredients: viewModel.Ingredients)
                     IngredientsDrinkView(ingredients: viewModel.Ingredients)
                 } label: {
                     searchIngredientsSearchButtonView()

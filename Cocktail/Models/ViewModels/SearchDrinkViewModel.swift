@@ -20,10 +20,8 @@ class SearchDrinkViewModel: ObservableObject {
     let GradientColors = Gradient(colors: [ Color.white, Color("orange").opacity(0.7)])
     
     
-    func searchButtonAction(namePass: String) {
-     
-        replaced = namePass
-        
+    func searchButtonAction(dataController: DrinkNameDataController) {
+        replaced = drinkName.replacingOccurrences(of: " ", with: "_")
         dataController.fetch(DrinkName: replaced)
     }
     

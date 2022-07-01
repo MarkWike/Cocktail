@@ -4,10 +4,6 @@
 //
 //  Created by Mark Wike on 13/06/2022.
 //
-
-
-
-
 import SwiftUI
 
 struct SearchDrinkView: View {
@@ -36,16 +32,10 @@ struct SearchDrinkView: View {
                         .padding(.horizontal)
                     }
                     Button(action: {
-                        viewModel.searchButtonAction(namePass: viewModel.drinkName)
+                        viewModel.searchButtonAction(dataController: dataController)
                         print(viewModel.drinkName)
-                        
                     }){
-                        Text("Search")
-                            .padding(EdgeInsets(top: 12, leading: 20, bottom: 12, trailing: 20))
-                            .font(.custom("Futura", size: 20))
-                            .foregroundColor(Color.white)
-                            .background(Color.indigo)
-                            .cornerRadius(.infinity)
+                        SearchDrinkSearchButtonView()
                     }
                     ScrollView(Axis.Set.vertical,showsIndicators: false) {
                         ForEach(dataController.drinkNameInfo?.drinks ?? [], id: \.self) { types in
@@ -54,28 +44,6 @@ struct SearchDrinkView: View {
                             } label: {
                                 VStack{
                                     SearchDrinkListView(imageName: types.strDrinkThumb ?? "drink thumb", DrinkName: types.strDrink ?? "Drink")
-//                                    HStack{
-//                                        let test = types.strDrinkThumb ?? "drink thumb"
-//                                        let url1 = URL(string: test)
-//                                        AsyncImage(
-//                                            url: url1,
-//                                            content: { image in
-//                                                image
-//                                                    .resizable()
-//                                                    .aspectRatio(contentMode: .fit)
-//                                                    .clipShape(RoundedRectangle(cornerRadius: 15.0))
-//                                                    .frame(maxWidth: 60, maxHeight: 60)
-//                                            },
-//                                            placeholder: {
-//                                                ProgressView()
-//                                            }
-//                                        )
-//                                        Text(types.strDrink ?? "Drink")
-//                                            .font(.custom("Futura", size: 20))
-//                                            .foregroundColor(.white)
-//                                            .frame(width: 200, height: 60, alignment: .leading)
-//                                            .shadow(color: .indigo.opacity(0.9), radius: 10, x: 5, y: 5)
-//                                    }
                                     ListLineView()
                                 }
                             }

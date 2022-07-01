@@ -18,7 +18,6 @@ struct SwiftUIView1: View {
     var body: some View {
         ZStack{
             TabView {
-              //  MainMenu(drinkId: practiceDrinkID, typeID: practiceTypeID).tabItem {
                     MainMenu().tabItem {
                     VStack{
                         Image(systemName: "book")

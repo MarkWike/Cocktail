@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct IngredientsDrinkView: View {
+    @StateObject var viewModel = ingredientsDrinkViewModel()
     let GradientColors = Gradient(colors: [ Color.white, Color("orange").opacity(0.7)])
     let GradientColors2 = Gradient(colors: [Color("purple"), Color("pink")])
     var ingredients: String
@@ -23,31 +24,8 @@ struct IngredientsDrinkView: View {
                         CocktailView(drinkId: ingredients.idDrink ?? "11007")
                     } label: {
                         VStack{
-                            HStack{
-                                let test = ingredients.strDrinkThumb ?? "drink thumb"
-                                let url1 = URL(string: test)
-                                AsyncImage(
-                                    url: url1,
-                                    content: { image in
-                                        image
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .clipShape(RoundedRectangle(cornerRadius: 15.0))
-                                            .frame(maxWidth: 70, maxHeight: 70)
-                                    },
-                                    placeholder: {
-                                        ProgressView()
-                                    }
-                                )
-                                Text(ingredients.strDrink ?? "Drink")
-                                    .font(.custom("Futura", size: 20))
-                                    .foregroundColor(.white)
-                                    .frame(width: 200, height: 60, alignment: .leading)
-                                    .shadow(color: .indigo.opacity(0.9), radius: 10, x: 5, y: 5)
-                            }
-                            RoundedRectangle(cornerRadius: 20)
-                                .fill(LinearGradient(gradient: GradientColors2, startPoint: .leading, endPoint: .trailing))
-                                .frame(width: 250, height: 3, alignment: .trailing)
+                            IngredientsDrinksViewListView(drinkName: ingredients.strDrink ?? "Drink", DrinkImage: ingredients.strDrinkThumb ?? "drink thumb")
+                            ListLineView()
                         }
                     }
                     
@@ -64,5 +42,6 @@ struct IngredientsDrinkView: View {
 struct IngredientsDrinkView_Previews: PreviewProvider {
     static var previews: some View {
         IngredientsDrinkView(ingredients: practiceDrinkIngredient1)
+      //  IngredientsDrinkView()
     }
 }
