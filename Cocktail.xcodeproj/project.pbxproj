@@ -44,6 +44,10 @@
 		9E1CEA78286FA57200D47189 /* randomListlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1CEA77286FA57200D47189 /* randomListlistView.swift */; };
 		9E1CEA7A286FAC9600D47189 /* IngredientsDrinksViewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1CEA79286FAC9600D47189 /* IngredientsDrinksViewListView.swift */; };
 		9E1CEA7C286FADAC00D47189 /* IngredientsDrinkViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1CEA7B286FADAC00D47189 /* IngredientsDrinkViewViewModel.swift */; };
+		9E1CEA812870D49500D47189 /* UserDrinksAddViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1CEA802870D49500D47189 /* UserDrinksAddViewViewModel.swift */; };
+		9E1CEA842870E74A00D47189 /* UDaddViewTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1CEA832870E74A00D47189 /* UDaddViewTitleView.swift */; };
+		9E1CEA862870E87900D47189 /* NameOfDrinkTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1CEA852870E87800D47189 /* NameOfDrinkTextFieldView.swift */; };
+		9E1CEA882870EBE900D47189 /* UDaddViewIngredientListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1CEA872870EBE900D47189 /* UDaddViewIngredientListView.swift */; };
 		9E2468BD283D7C9E0029FCEA /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2468BC283D7C9E0029FCEA /* SwiftUIView.swift */; };
 		9E2468C1283D9CCF0029FCEA /* nonDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2468C0283D9CCF0029FCEA /* nonDataController.swift */; };
 		9E2468C3283D9E0F0029FCEA /* NonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2468C2283D9E0F0029FCEA /* NonModel.swift */; };
@@ -168,6 +172,10 @@
 		9E1CEA77286FA57200D47189 /* randomListlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = randomListlistView.swift; sourceTree = "<group>"; };
 		9E1CEA79286FAC9600D47189 /* IngredientsDrinksViewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsDrinksViewListView.swift; sourceTree = "<group>"; };
 		9E1CEA7B286FADAC00D47189 /* IngredientsDrinkViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsDrinkViewViewModel.swift; sourceTree = "<group>"; };
+		9E1CEA802870D49500D47189 /* UserDrinksAddViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDrinksAddViewViewModel.swift; sourceTree = "<group>"; };
+		9E1CEA832870E74A00D47189 /* UDaddViewTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDaddViewTitleView.swift; sourceTree = "<group>"; };
+		9E1CEA852870E87800D47189 /* NameOfDrinkTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameOfDrinkTextFieldView.swift; sourceTree = "<group>"; };
+		9E1CEA872870EBE900D47189 /* UDaddViewIngredientListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDaddViewIngredientListView.swift; sourceTree = "<group>"; };
 		9E2467C8282DB0E90029FCEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9E2468BC283D7C9E0029FCEA /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		9E2468C0283D9CCF0029FCEA /* nonDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nonDataController.swift; sourceTree = "<group>"; };
@@ -352,6 +360,7 @@
 				9E1CEA34286BC7B500D47189 /* MainMenuViewModel.swift */,
 				9E1CEA5A286DC07600D47189 /* NonViewViewModel.swift */,
 				9E1CEA47286DA80A00D47189 /* vodkaViewViewModel.swift */,
+				9E1CEA802870D49500D47189 /* UserDrinksAddViewViewModel.swift */,
 				9E1CEA4E286DB6C100D47189 /* ginViewViewModel.swift */,
 				9E1CEA55286DBAED00D47189 /* RumViewViewModel.swift */,
 				9E1CEA36286CA36800D47189 /* SearchingredientsModelView.swift */,
@@ -426,6 +435,27 @@
 			children = (
 			);
 			path = SearchMenuSubViews;
+			sourceTree = "<group>";
+		};
+		9E1CEA7F2870CFBA00D47189 /* UserDrinks */ = {
+			isa = PBXGroup;
+			children = (
+				9E2468D02844027A0029FCEA /* UserDrinkMenu.swift */,
+				9E2468CC2843BD6C0029FCEA /* UserDrinksAddView.swift */,
+				9E2468CE2843C1C50029FCEA /* UserDrinksView.swift */,
+				9E1CEA822870E5D000D47189 /* UserDrinksAddViewSubViews */,
+			);
+			path = UserDrinks;
+			sourceTree = "<group>";
+		};
+		9E1CEA822870E5D000D47189 /* UserDrinksAddViewSubViews */ = {
+			isa = PBXGroup;
+			children = (
+				9E1CEA832870E74A00D47189 /* UDaddViewTitleView.swift */,
+				9E1CEA872870EBE900D47189 /* UDaddViewIngredientListView.swift */,
+				9E1CEA852870E87800D47189 /* NameOfDrinkTextFieldView.swift */,
+			);
+			path = UserDrinksAddViewSubViews;
 			sourceTree = "<group>";
 		};
 		9E2468C92843BB070029FCEA /* CoreData */ = {
@@ -536,15 +566,13 @@
 				9E1CEA70286F8C3B00D47189 /* SearchDrinks */,
 				9E1CEA52286DB94E00D47189 /* Lists */,
 				9E486DF728469469007A4913 /* typeMenuSubViews */,
-				9E2468BC283D7C9E0029FCEA /* SwiftUIView.swift */,
 				9E1CEA38286CD56C00D47189 /* SearchIngredients */,
+				9E1CEA7F2870CFBA00D47189 /* UserDrinks */,
+				9E1CEA7D286FB8B100D47189 /* SearchMenu */,
+				9E486DF528466D17007A4913 /* TypeMenu.swift */,
+				9E2468BC283D7C9E0029FCEA /* SwiftUIView.swift */,
 				9E561249280065D0004A8834 /* RandomCocktailView.swift */,
 				9E3B34AC2808B16000D4ED08 /* CocktailView.swift */,
-				9E2468CC2843BD6C0029FCEA /* UserDrinksAddView.swift */,
-				9E2468D02844027A0029FCEA /* UserDrinkMenu.swift */,
-				9E2468CE2843C1C50029FCEA /* UserDrinksView.swift */,
-				9E486DF528466D17007A4913 /* TypeMenu.swift */,
-				9E1CEA7D286FB8B100D47189 /* SearchMenu */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -742,6 +770,7 @@
 				9E1CEA51286DB82700D47189 /* ginViewListView.swift in Sources */,
 				9E1CEA3B286CD5E900D47189 /* SearchingredientsHeaderView.swift in Sources */,
 				9E1CEA59286DBC0F00D47189 /* RumViewListView.swift in Sources */,
+				9E1CEA862870E87900D47189 /* NameOfDrinkTextFieldView.swift in Sources */,
 				9E1CEA76286F9D9800D47189 /* typeViewListView.swift in Sources */,
 				9E486E0B28469572007A4913 /* BeerView.swift in Sources */,
 				9E1CEA48286DA80B00D47189 /* vodkaViewViewModel.swift in Sources */,
@@ -764,6 +793,7 @@
 				9E3B34A32807940300D4ED08 /* VodkaView.swift in Sources */,
 				9E3B349F280792F500D4ED08 /* vodkaDataController.swift in Sources */,
 				9E1CEA3D286CD86E00D47189 /* searchIngredients3pickedView.swift in Sources */,
+				9E1CEA812870D49500D47189 /* UserDrinksAddViewViewModel.swift in Sources */,
 				9EA305062857FF26004679AB /* DrinkNameModel.swift in Sources */,
 				9EA305022857F8D1004679AB /* SearchDrinkView.swift in Sources */,
 				9E486E0928469566007A4913 /* PartyView.swift in Sources */,
@@ -783,6 +813,8 @@
 				9EEE8D752855667E008FFA5D /* RandomListModel.swift in Sources */,
 				9E1CEA27285F4DF500D47189 /* SearchIngredients.swift in Sources */,
 				9E486DF9284694E6007A4913 /* OrdinaryButtonView.swift in Sources */,
+				9E1CEA842870E74A00D47189 /* UDaddViewTitleView.swift in Sources */,
+				9E1CEA882870EBE900D47189 /* UDaddViewIngredientListView.swift in Sources */,
 				9E2468D12844027A0029FCEA /* UserDrinkMenu.swift in Sources */,
 				9E486E032846953E007A4913 /* ShotView.swift in Sources */,
 				9E1CEA60286E412600D47189 /* MainMenuQuickLookupView.swift in Sources */,
