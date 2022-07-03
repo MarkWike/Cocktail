@@ -167,7 +167,7 @@ struct UserDrinksView: View {
                                                                     Spacer()
                                                                 }
                                                             }
-                                                            if drinks.strIngredient8 != "" {
+                                                            if drinks.strIngredient8 == "" {
                                                                 
                                                             }else{
                                                                 ZStack{

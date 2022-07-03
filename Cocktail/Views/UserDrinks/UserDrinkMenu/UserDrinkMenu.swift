@@ -30,46 +30,14 @@ struct UserDrinkMenu: View {
                                     LinearGradient(gradient: GradientColors, startPoint: .bottomLeading, endPoint: .center)
                                         .ignoresSafeArea()
                                     VStack{
-                                        Text(drinks.strDrink ?? "Drink")
-                                            .font(.custom("Futura", size: 30))
-                                            .foregroundColor(.white)
-                                        Text(drinks.strAlcoholic ?? "Alcoholic")
-                                            .font(.custom("Futura", size: 20))
-                                            .frame(width: 300, alignment: .center)
-                                            .foregroundColor(.white)
-                                        let GlassText = "Best served in a \(drinks.strGlass?.lowercased() ?? "glass")"
-                                        Text(GlassText)
-                                            .font(.custom("Futura", size: 20))
-                                            .frame(width: 300, alignment: .center)
-                                            .foregroundColor(.white)
+                                        UserDrinkDrinkInfoView(drinkName: drinks.strDrink ?? "Drink", drinkType: drinks.strAlcoholic ?? "Alcoholic", drinkGlass: drinks.strGlass?.lowercased() ?? "glass")
                                         HStack {
                                             ScrollView(Axis.Set.vertical,showsIndicators: false) {
                                                 VStack{
-                                                    ZStack{
-                                                        RoundedRectangle(cornerRadius: 20)
-                                                            .fill(LinearGradient(gradient: GradientColors1, startPoint: .top, endPoint: .bottom))
-                                                        VStack {
-                                                            Text("Instructions")
-                                                                .font(.custom("Futura", size: 20))
-                                                                .frame(width: 300, alignment: .center)
-                                                                .foregroundColor(.white)
-                                                            Text(drinks.strInstructions ?? "instructions")
-                                                                .font(.custom("Futura", size: 15))
-                                                                .frame(width: 300, alignment: .center)
-                                                                .foregroundColor(.white)
-                                                                .padding(.horizontal)
-                                                                .padding(.bottom)
-                                                        }
-                                                    }
-                                                    .padding()
+                                                        userDrinksInstructionsView(drinkInstructions: drinks.strInstructions ?? "instructions")
                                                     ZStack{
                                                         VStack(spacing: 20){
-                                                            Text("Ingredients")
-                                                                .font(.custom("Futura", size: 20))
-                                                                .shadow(color: .black.opacity(5.1), radius: 10, x: 5, y: 5)
-                                                                .frame(width: 300, alignment: .center)
-                                                                .foregroundColor(.white)
-                                                                .padding(20)
+                                                            userDrinksIngredientsHeaderView()
                                                             if drinks.strIngredient1 == "" {
                                                             }else{
                                                                 UserDrinksIngreientBoxView(drinkIngredient: drinks.strIngredient1 ?? "")
