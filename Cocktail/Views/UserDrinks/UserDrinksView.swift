@@ -20,6 +20,7 @@ struct UserDrinksView: View {
             VStack {
                 List {
                     ForEach(drink) { drinks in
+                        
                         NavigationLink {
                             ZStack{
                                 LinearGradient(gradient: GradientColors, startPoint: .bottomLeading, endPoint: .center)
@@ -33,7 +34,10 @@ struct UserDrinksView: View {
                                         .frame(width: 300, alignment: .center)
                                         .foregroundColor(.white)
                                     let GlassText = "Best served in a \(drinks.strGlass?.lowercased() ?? "glass")"
+                                    
+                                
                                     Text(GlassText)
+                                    
                                         .font(.custom("Futura", size: 20))
                                         .frame(width: 300, alignment: .center)
                                         .foregroundColor(.white)
@@ -65,7 +69,7 @@ struct UserDrinksView: View {
                                                             .frame(width: 300, alignment: .center)
                                                             .foregroundColor(.white)
                                                             .padding(20)
-                                                        if drinks.strMeasure1 == nil {
+                                                        if drinks.strIngredient1 == "" {
                                                         }else{
                                                             ZStack{
                                                                 RoundedRectangle(cornerRadius: 15.0)
@@ -77,7 +81,7 @@ struct UserDrinksView: View {
                                                                     .foregroundColor(.white).opacity(1.6)
                                                             }
                                                         }
-                                                        if drinks.strMeasure2 == nil {
+                                                        if drinks.strIngredient2 == "" {
                                                         }else{
                                                             ZStack{
                                                                 RoundedRectangle(cornerRadius: 15.0)
@@ -89,7 +93,7 @@ struct UserDrinksView: View {
                                                                     .foregroundColor(.white).opacity(1.6)
                                                             }
                                                         }
-                                                        if drinks.strMeasure3 == nil {
+                                                        if drinks.strIngredient3 == ""  {
                                                         }else{
                                                             ZStack{
                                                                 Spacer()
@@ -104,9 +108,12 @@ struct UserDrinksView: View {
                                                                 }
                                                                 Spacer()
                                                             }
-                                                            if drinks.strMeasure4 == nil {
+                                                            if drinks.strIngredient4 == "" {
                                                             }else{
+                                                               
                                                                 ZStack{
+                                                                   
+                                                                    
                                                                     Spacer()
                                                                     RoundedRectangle(cornerRadius: 15.0)
                                                                         .fill(LinearGradient(gradient: GradientColors1, startPoint: .top, endPoint: .bottom))
@@ -118,7 +125,7 @@ struct UserDrinksView: View {
                                                                     Spacer()
                                                                 }
                                                             }
-                                                            if drinks.strMeasure5 == nil {
+                                                            if drinks.strIngredient5 == "" {
                                                             }else{
                                                                 ZStack{
                                                                     Spacer()
@@ -132,7 +139,7 @@ struct UserDrinksView: View {
                                                                     Spacer()
                                                                 }
                                                             }
-                                                            if drinks.strMeasure6 == nil {
+                                                            if drinks.strIngredient6 == "" {
                                                             }else{
                                                                 ZStack{
                                                                     Spacer()
@@ -146,7 +153,7 @@ struct UserDrinksView: View {
                                                                     Spacer()
                                                                 }
                                                             }
-                                                            if drinks.strMeasure7 == nil {
+                                                            if drinks.strIngredient7 == "" {
                                                             }else{
                                                                 ZStack{
                                                                     Spacer()
@@ -160,14 +167,15 @@ struct UserDrinksView: View {
                                                                     Spacer()
                                                                 }
                                                             }
-                                                            if drinks.strMeasure8 == nil {
+                                                            if drinks.strIngredient8 != "" {
+                                                                
                                                             }else{
                                                                 ZStack{
                                                                     Spacer()
-                                                                    RoundedRectangle(cornerRadius: 15.0)
+                                                                    RoundedRectangle(cornerRadius: 1.0)
                                                                         .fill(LinearGradient(gradient: GradientColors1, startPoint: .top, endPoint: .bottom))
-                                                                        .frame(height: 40.0)
-                                                                        .padding(.horizontal)
+                                                                        .frame(height: 80.0)
+                                                                       // .padding(.horizontal)
                                                                     Text("\(drinks.strMeasure8 ?? "") \(drinks.strIngredient8 ?? "")")
                                                                         .font(.custom("Futura", size: 15))
                                                                         .foregroundColor(.white).opacity(1.6)

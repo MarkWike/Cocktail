@@ -83,7 +83,7 @@ struct UserDrinkMenu: View {
                                                                 .frame(width: 300, alignment: .center)
                                                                 .foregroundColor(.white)
                                                                 .padding(20)
-                                                            if drinks.strMeasure1 == nil {
+                                                            if drinks.strIngredient1 == "" {
                                                             }else{
                                                                 ZStack{
                                                                     RoundedRectangle(cornerRadius: 15.0)
@@ -95,7 +95,7 @@ struct UserDrinkMenu: View {
                                                                         .foregroundColor(.white).opacity(1.6)
                                                                 }
                                                             }
-                                                            if drinks.strMeasure2 == nil {
+                                                            if drinks.strIngredient2 == "" {
                                                             }else{
                                                                 ZStack{
                                                                     RoundedRectangle(cornerRadius: 15.0)
@@ -107,7 +107,7 @@ struct UserDrinkMenu: View {
                                                                         .foregroundColor(.white).opacity(1.6)
                                                                 }
                                                             }
-                                                            if drinks.strMeasure3 == nil {
+                                                            if drinks.strIngredient3 == "" {
                                                             }else{
                                                                 ZStack{
                                                                     Spacer()
@@ -122,7 +122,7 @@ struct UserDrinkMenu: View {
                                                                     }
                                                                     Spacer()
                                                                 }
-                                                                if drinks.strMeasure4 == nil {
+                                                                if drinks.strIngredient4 == "" {
                                                                 }else{
                                                                     ZStack{
                                                                         Spacer()
@@ -136,7 +136,7 @@ struct UserDrinkMenu: View {
                                                                         Spacer()
                                                                     }
                                                                 }
-                                                                if drinks.strMeasure5 == nil {
+                                                                if drinks.strIngredient5 == "" {
                                                                 }else{
                                                                     ZStack{
                                                                         Spacer()
@@ -150,7 +150,7 @@ struct UserDrinkMenu: View {
                                                                         Spacer()
                                                                     }
                                                                 }
-                                                                if drinks.strMeasure6 == nil {
+                                                                if drinks.strIngredient6 == "" {
                                                                 }else{
                                                                     ZStack{
                                                                         Spacer()
@@ -164,7 +164,7 @@ struct UserDrinkMenu: View {
                                                                         Spacer()
                                                                     }
                                                                 }
-                                                                if drinks.strMeasure7 == nil {
+                                                                if drinks.strIngredient7 == "" {
                                                                 }else{
                                                                     ZStack{
                                                                         Spacer()
@@ -178,7 +178,7 @@ struct UserDrinkMenu: View {
                                                                         Spacer()
                                                                     }
                                                                 }
-                                                                if drinks.strMeasure8 == nil {
+                                                                if drinks.strIngredient8 == "" {
                                                                 }else{
                                                                     ZStack{
                                                                         Spacer()
