@@ -11,45 +11,6 @@ struct UserDrinksAddView: View {
     @StateObject var viewModel = UserDrinksAddViewViewModel()
     let GradientColors = Gradient(colors: [ Color.white, Color("orange").opacity(0.7)])
     let GradientColors1 = Gradient(colors: [Color.indigo, Color.indigo])
-//    @State private var strDrink = ""
-//    @State private var strCategory = ""
-//    @State private var strAlcoholic = ""
-//    @State private var strGlass = ""
-//    @State private var textFieldData = ""
-//    @State private var strInstructions = ""
-//    @State private var strIngredient1 = ""
-//    @State private var strIngredient2 = ""
-//    @State private var strIngredient3 = ""
-//    @State private var strIngredient4 = ""
-//    @State private var strIngredient5 = ""
-//    @State private var strIngredient6 = ""
-//    @State private var strIngredient7 = ""
-//    @State private var strIngredient8 = ""
-//    @State private var strIngredient9 = ""
-//    @State private var strIngredient10 = ""
-//    @State private var strIngredient11 = ""
-//    @State private var strIngredient12 = ""
-//    @State private var strIngredient13 = ""
-//    @State private var strIngredient14 = ""
-//    @State private var strIngredient15 = ""
-//    @State private var strMeasure1 = ""
-//    @State private var strMeasure2 = ""
-//    @State private var strMeasure3 = ""
-//    @State private var strMeasure4 = ""
-//    @State private var strMeasure5 = ""
-//    @State private var strMeasure6 = ""
-//    @State private var strMeasure7 = ""
-//    @State private var strMeasure8 = ""
-//    @State private var strMeasure9 = ""
-//    @State private var strMeasure10 = ""
-//    @State private var strMeasure11 = ""
-//    @State private var strMeasure12 = ""
-//    @State private var strMeasure13 = ""
-//    @State private var strMeasure14 = ""
-//    @State private var strMeasure15 = ""
-//    @State private var number = 1
-//    @State private var temp = ""
-//    @State private var showingAlert = false
     @FetchRequest(sortDescriptors: []) private var drink: FetchedResults<UserDrinksEntity>
     @Environment(\.managedObjectContext) var moc
     var body: some View {
@@ -59,13 +20,6 @@ struct UserDrinksAddView: View {
             ScrollView(Axis.Set.vertical,showsIndicators: false) {
                 VStack{
                     UDaddViewTitleView()
-                   
-//                    Text("Add you own cocktails to the app")
-//                        .font(.custom("Futura Bold", size: 20))
-//                        .foregroundColor(.white)
-//                        .shadow(color: .white.opacity(0.2), radius: 10, x: 5, y: 15)
-//                        .multilineTextAlignment(.center)
-//                        .padding()
                     Group {
                         ZStack(alignment: .leading) {
                             if viewModel.strDrink.isEmpty {
@@ -161,52 +115,6 @@ struct UserDrinksAddView: View {
                 HStack {
                     Button(action:{
                         viewModel.buttonAction()
-//                        if viewModel.temp == "" {
-//                            
-//                        }else{
-//                            if viewModel.number == 1 {
-//                                viewModel.strIngredient1 = viewModel.temp
-//                                viewModel.number = 2
-//                                viewModel.temp = ""
-//                            }else if viewModel.number == 2 {
-//                                viewModel.strIngredient2 = viewModel.temp
-//                                viewModel.number = 3
-//                                viewModel.temp = ""
-//                            }else if viewModel.number == 3 {
-//                                viewModel.strIngredient3 = viewModel.temp
-//                                viewModel.number = 4
-//                                viewModel.temp = ""
-//                            }else if viewModel.number == 4 {
-//                                viewModel.strIngredient4 = viewModel.temp
-//                                viewModel.number = 5
-//                                viewModel.temp = ""
-//                            }else if viewModel.number == 5 {
-//                                viewModel.strIngredient5 = viewModel.temp
-//                                viewModel.number = 6
-//                                viewModel.temp = ""
-//                            }else if viewModel.number == 6 {
-//                                viewModel.strIngredient6 = viewModel.temp
-//                                viewModel.number = 7
-//                                viewModel.temp = ""
-//                            }else if viewModel.number == 7 {
-//                                viewModel.strIngredient7 = viewModel.temp
-//                                viewModel.number = 8
-//                                viewModel.temp = ""
-//                            }else if viewModel.number == 8 {
-//                                viewModel.strIngredient8 = viewModel.temp
-//                                viewModel.number = 9
-//                                viewModel.temp = ""
-//                            }else if viewModel.number == 9 {
-//                                viewModel.strIngredient9 = viewModel.temp
-//                                viewModel.number = 10
-//                                viewModel.temp = ""
-//                            }else if viewModel.number == 10 {
-//                                viewModel.strIngredient10 = viewModel.temp
-//                                viewModel.number = 11
-//                                viewModel.temp = ""
-//                            }
-//                            print(viewModel.number)
-//                        }
                     }){
                         Text("Add Ingredient")
                             .padding(EdgeInsets(top: 12, leading: 20, bottom: 12, trailing: 20))
